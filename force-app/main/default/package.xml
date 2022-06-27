@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Automate Activities</fullName>
+    <apiAccessLevel>Unrestricted</apiAccessLevel>
+    <namespacePrefix>autoactivity</namespacePrefix>
+    <types>
+        <members>AA_ActivitySummary</members>
+        <name>AuraDefinitionBundle</name>
+    </types>
+    <types>
+        <members>Account.Activity_Plan__c</members>
+        <members>Activity.Show_in_Panel__c</members>
+        <members>Activity_Plan_Item__c.Activity_Plan__c</members>
+        <members>Activity_Plan_Item__c.Activity_Type__c</members>
+        <members>Activity_Plan_Item__c.Assign_Type__c</members>
+        <members>Activity_Plan_Item__c.Assigned_To__c</members>
+        <members>Activity_Plan_Item__c.Due_Time__c</members>
+        <members>Activity_Plan_Item__c.Due_Type__c</members>
+        <members>Activity_Plan_Item__c.Due__c</members>
+        <members>Activity_Plan_Item__c.Duration__c</members>
+        <members>Activity_Plan_Item__c.Subject__c</members>
+        <members>Activity_Plan__c.Description__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Activity_Plan_Item__c</members>
+        <members>Activity_Plan__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Activity_Plan__c</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>AA_Activity_Creation_Flow</members>
+        <members>Activity_Summary</members>
+        <members>Automate_Account_Activities</members>
+        <members>Automate_Activities</members>
+        <name>Flow</name>
+    </types>
+    <types>
+        <members>Activity_Plan_Item__c-Activity Plan Item Layout</members>
+        <members>Activity_Plan__c-Activity Plan Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>Activity_Plan__c.All</members>
+        <name>ListView</name>
+    </types>
+    <types>
+        <members>Automate_Activities_Permission_Set</members>
+        <name>PermissionSet</name>
+    </types>
+    <version>54.0</version>
+</Package>

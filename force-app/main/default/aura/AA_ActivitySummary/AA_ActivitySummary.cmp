@@ -1,0 +1,100 @@
+<aura:component implements="lightning:availableForFlowScreens" access="global">
+    <aura:attribute name="Events" type="Event[]"></aura:attribute>
+    <aura:attribute name="Tasks" type="Task[]"></aura:attribute>
+    <aura:attribute name="Activities" type="List"></aura:attribute>
+    <aura:attribute name="pendingTasksCount" type="Integer"></aura:attribute>
+        <aura:attribute name="upcomingEvents" type="Integer"></aura:attribute>
+    <aura:attribute name="Title" type="String"></aura:attribute>
+        <aura:attribute name="showActivities" type="Boolean"></aura:attribute>
+
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"></aura:handler>
+   <!-- <div>
+     Pending tasks - {!v.pendingTasksCount}
+     <aura:iteration items="{!v.Activities}" var="activity">
+     	{!activity.Subject} - {!activity.ActivityDate}
+      </aura:iteration>
+    </div>-->
+        <lightning:card title="{!v.Title}" iconName="standard:performance">
+			<lightning:layout class="slds-p-horizontal_xx-small slds-p-vertical_small">
+            <lightning:layoutItem padding="horizontal-small" size="6">
+                <div class="slds-box slds-text-align_center">
+                    <div class="slds-text-heading_small slds-text-align_center">
+                        Pending Tasks
+                    </div>            
+                
+                    
+                    <div  class="kpi-negative slds-text-align_center">
+                        {!v.pendingTasksCount}
+                    </div>
+                    
+    
+                    
+                </div>
+
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="horizontal-small" size="6">
+                <div class="slds-box slds-text-align_center">
+                    <div class="slds-text-heading_small slds-text-align_center">
+                        Upcoming Events
+                    </div>            
+                
+                    <div class="kpi-positive slds-text-align_center">
+                        {!v.upcomingEvents}
+                    </div>
+                    
+                </div>
+
+            </lightning:layoutItem>
+        </lightning:layout>
+            <aura:if isTrue="{!v.showActivities}">
+                <lightning:tabset selectedTabId="Activities">
+        <lightning:tab label="Activities" id="Activities">
+            <ul class="slds-has-dividers_bottom-space">
+            <aura:iteration items="{!v.Activities}" var="activity">
+			    <aura:if isTrue="{!activity.TaskSubtype  =='Task'}">
+                     <li class="slds-item">
+                         <lightning:tile  label="{!activity.Subject}" href="{!'/'+activity.Id}">    
+
+                            <aura:set attribute="media">
+        							 <lightning:icon iconName="standard:task"  size="large" />
+                            </aura:set>
+                            <ul class="slds-list_horizontal slds-has-dividers_right">
+                                <li class="slds-item">
+                                   <div class="slds-p-around_xx-small"> <aura:if isTrue="{!activity.Status=='Completed'}">
+                                        <lightning:badge label="{!activity.Status}" class="slds-theme_success"/>
+                                        <aura:set attribute="else">
+                                            <lightning:badge class="slds-theme_warning" label="{!activity.Status}"/>
+                                        </aura:set>
+                                       </aura:if></div></li>
+                                <li class="slds-item"><div class="slds-p-around_xx-small"><lightning:icon iconName="standard:user" size="x-small"/></div>  {!activity.autoactivity__Owner_Name__c}</li>
+                                <li class="slds-item"><div class="slds-p-around_xx-small"><lightning:icon iconName="standard:date_input" size="x-small"/> </div> <lightning:formattedDateTime value="{!activity.ActivityDate}" /></li>
+                            </ul>
+                        </lightning:tile>
+                    </li>
+                    <aura:set attribute="else">
+                        <li class="slds-item">
+                        <lightning:tile  label="{!activity.Subject}" href="{!'/'+activity.Id}">
+                            <aura:set attribute="media">
+         							<lightning:icon iconName="standard:event" size="large"/>
+                            </aura:set>
+                            <ul class="slds-list_horizontal slds-has-dividers_right">
+                                <li class="slds-item"><div class="slds-p-around_xx-small"><lightning:icon iconName="standard:user" size="x-small"/></div>  {!activity.autoactivity__Owner_Name__c}</li>
+                                <li class="slds-item"><div class="slds-p-around_xx-small"><lightning:icon iconName="standard:date_input" size="x-small"/></div>  <lightning:formattedDateTime value="{!activity.ActivityDateTime}" year="numeric"  month="numeric" day="numeric" hour="2-digit"
+                                                                                                                                                                                        minute="2-digit" timeZoneName="short" hour12="true" /></li>
+                            </ul>
+                        </lightning:tile>
+                    </li>
+                    </aura:set>
+               </aura:if>
+            </aura:iteration>
+		</ul>
+
+        </lightning:tab>
+       
+        
+    </lightning:tabset>
+                </aura:if>
+
+    	</lightning:card>
+</aura:component>

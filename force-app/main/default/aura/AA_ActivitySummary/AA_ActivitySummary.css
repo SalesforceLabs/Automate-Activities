@@ -1,0 +1,23 @@
+.THIS {
+}
+.THIS.cardTitle{
+    font-weight: 700;   
+}
+.THIS .kpi-positive {
+    font-size: xx-large;
+    color: #028048;
+  
+}
+.THIS .kpi-negative {
+    font-size: xx-large;
+  color: #c23934;
+}
+
+.THIS .icon {
+    margin-top: 3px;
+    
+}
+
+.THIS .text-bold{
+    font-weight: 700;
+}

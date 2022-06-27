@@ -1,0 +1,7 @@
+<design:component>
+	<design:attribute name="Events" label="Events"></design:attribute>
+    <design:attribute name="Tasks" label="Tasks"></design:attribute>
+        <design:attribute name="Title" label="Title"></design:attribute>
+        <design:attribute name="showActivities" label="Show Activities"></design:attribute>
+
+</design:component>
